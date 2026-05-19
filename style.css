@@ -1,0 +1,465 @@
+/* --- Design System & Variables --- */
+:root {
+    --primary: #3b82f6;       /* Bright Blue text/accents */
+    --primary-dark: #1d4ed8;
+    --secondary: #0f172a;     /* Dark Slate background text color */
+    --bg-light: #ffffff;
+    --bg-alt: #f8fafc;        /* Subtle contrast section color */
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --accent: #10b981;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--secondary);
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* --- Hero Section (Full-Screen Image Background Layout) --- */
+.hero {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    background-color: #1e293b; /* Fallback color */
+    
+    /* REPLACE THE IMAGE NAME BELOW WITH YOUR ACTUAL LANDSCAPE PHOTO PATH */
+    background-image: url('images/ChatGPT\ Image\ May\ 19\,\ 2026\,\ 09_56_10\ PM.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Dark overlay gradient to ensure high readability of text on top of the image */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 50%, rgba(15, 23, 42, 0.3) 100%);
+    z-index: 1;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-content-left {
+    max-width: 650px;
+}
+
+.hero-content-left h1 {
+    font-size: 4rem;
+    color: var(--white); /* White text */
+    line-height: 1.2;
+    margin-bottom: 15px;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content-left h2 {
+    font-size: 1.6rem;
+    color: var(--primary); /* Blue text */
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero-content-left p {
+    font-size: 1.15rem;
+    color: #e2e8f0; /* Crisp light grey/white reading text */
+    margin-bottom: 35px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.info-item {
+    font-size: 1rem;
+    color: var(--white); /* White text */
+}
+
+.info-item strong {
+    color: var(--primary); /* Blue highlight labels */
+}
+
+/* --- Section Titles --- */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    color: var(--secondary);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.text-right {
+    text-align: right;
+}
+.text-right::after {
+    left: auto;
+    right: 0;
+}
+
+/* --- Double Timeline Layouts --- */
+.timeline {
+    position: relative;
+    max-width: 850px;
+    padding: 20px 0;
+}
+
+/* Vertical Spine Line Configuration */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #e2e8f0;
+    top: 0;
+    bottom: 0;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: var(--white);
+    border: 3px solid var(--primary);
+    top: 35px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+.timeline-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.timeline-content ul {
+    margin-left: 20px;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.timeline-content li {
+    margin-bottom: 8px;
+}
+
+/* LEFT-ALIGNED TIMELINE (Education) */
+.timeline-left {
+    margin: 0 auto 0 0; /* Pushed to Left */
+}
+.timeline-left::after {
+    left: 20px;
+}
+.timeline-left .timeline-item {
+    padding-left: 50px;
+}
+.timeline-left .timeline-item::after {
+    left: 13px;
+}
+.timeline-left .timeline-content {
+    border-left: 4px solid var(--primary);
+}
+
+/* RIGHT-ALIGNED TIMELINE (Experience) */
+.timeline-right {
+    margin: 0 0 0 auto; /* Pushed to Right */
+}
+.timeline-right::after {
+    right: 20px;
+}
+.timeline-right .timeline-item {
+    padding-right: 50px;
+}
+.timeline-right .timeline-item::after {
+    right: 13px;
+}
+.timeline-right .timeline-content {
+    border-right: 4px solid var(--secondary);
+    text-align: right;
+}
+.timeline-right .timeline-content ul {
+    list-style-type: none;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* --- Tech Evolution Block --- */
+.evolution-banner {
+    background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    margin-top: 60px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.evolution-banner h3 {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.evolution-banner p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.skill-category {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    border: 1px solid #e2e8f0;
+}
+
+.skill-category h3 {
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background-color: #eff6ff;
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.tag.tech-stack {
+    background-color: #ecfdf5;
+    color: var(--accent);
+}
+
+/* --- Projects Section --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.project-body {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.project-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-pill {
+    background-color: #f1f5f9;
+    color: var(--text-dark);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary);
+    color: #94a3b8;
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* --- Responsive Layout Configurations --- */
+@media (max-width: 992px) {
+    .hero-content-left h1 { font-size: 3rem; }
+    .hero-content-left h2 { font-size: 1.4rem; }
+}
+
+@media (max-width: 576px) {
+    .hero-content-left h1 { font-size: 2.4rem; }
+    .nav-links { display: none; }
+    
+    /* Format timelines to layout comfortably on small mobile screens */
+    .timeline-left::after, .timeline-right::after { left: 20px; right: auto; }
+    .timeline-left .timeline-item, .timeline-right .timeline-item { padding-left: 40px; padding-right: 0; }
+    .timeline-left .timeline-item::after, .timeline-right .timeline-item::after { left: 13px; right: auto; }
+    .timeline-right .timeline-content { text-align: left; border-right: none; border-left: 4px solid var(--secondary); }
+    .timeline-right .timeline-content ul { list-style-type: disc; margin-left: 20px; }
+    .section-title.text-right { text-align: left; }
+    .section-title.text-right::after { left: 0; right: auto; }
+}
